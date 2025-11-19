@@ -302,3 +302,10 @@ footer{
   .brand img{width:46px;height:46px;}
   h2{font-size:20px;}
 }
+.coming-soon {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  padding: 12px;
+}
