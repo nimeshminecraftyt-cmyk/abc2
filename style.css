@@ -1,0 +1,423 @@
+/* ---------- Root + Base ---------- */
+:root{
+  --bg: #0b1220;
+  --card: #0f1724;
+  --accent: #00c2a8;
+  --accent-2: #ffd166;
+  --muted: #94a3b8;
+  --glass: rgba(255,255,255,0.04);
+  --radius: 14px;
+  --maxw: 1100px;
+
+  font-family: 'Inter', system-ui, Segoe UI, Roboto, sans-serif;
+}
+
+body{
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),#07101a);
+  color:#e6eef6;
+  line-height:1.45;
+}
+
+.wrap{
+  max-width:var(--maxw);
+  margin:30px auto;
+  padding:28px;
+}
+
+/* ---------- Header ---------- */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+}
+
+.brand{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.brand img{
+  width:56px; height:56px;
+  border-radius:10px;
+  object-fit:cover;
+  box-shadow:0 6px 18px rgba(0,0,0,0.6);
+}
+
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:18px;
+  font-weight:600;
+}
+
+nav a.cta{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  padding:8px 14px;
+  border-radius:10px;
+  color:#081019;
+}
+
+/* ---------- Hero ---------- */
+.hero{
+  background:linear-gradient(180deg,rgba(255,255,255,0.02),var(--glass));
+  padding:28px;
+  border-radius:var(--radius);
+  box-shadow:0 10px 40px rgba(2,6,23,0.6);
+}
+
+.kicker{
+  display:inline-block;
+  padding:6px 10px;
+  background:rgba(0,0,0,0.25);
+  border-radius:999px;
+  color:var(--accent);
+  font-weight:700;
+  font-size:12px;
+}
+
+h2{margin:12px 0 8px;font-size:28px;}
+p.lead{color:var(--muted);margin:0 0 18px;}
+
+.cta-row{display:flex;gap:12px;margin-top:12px;}
+
+.btn{
+  padding:12px 16px;
+  border-radius:12px;
+  border:0;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.btn.primary{background:var(--accent);color:#021015;}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);}
+
+/* ---------- Services Grid ---------- */
+.services{
+  margin-top:28px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.service{
+  background:var(--card);
+  padding:18px;
+  border-radius:12px;
+  box-shadow:0 8px 30px rgba(2,6,23,0.6);
+  transition:transform .35s;
+}
+
+.service:hover{transform:translateY(-8px);}
+.service p{color:var(--muted);font-size:14px;}
+.price{margin-top:12px;font-weight:800;}
+
+/* ---------- About ---------- */
+.about{
+  margin-top:28px;
+  padding:20px;
+  border-radius:12px;
+  background:linear-gradient(90deg,rgba(0,0,0,0.22),transparent);
+}
+
+/* ---------- Footer ---------- */
+footer{
+  margin-top:34px;
+  padding:18px;
+  border-radius:12px;
+  background:rgba(0,0,0,0.2);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+/* ---------- MOBILE RESPONSIVE FIXES ---------- */
+@media (max-width: 768px) {
+
+  .wrap {
+    margin: 0;
+    padding: 20px;
+  }
+
+  /* HEADER STACKS */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  nav a {
+    margin: 0;
+    font-size: 15px;
+  }
+
+  /* HERO TEXT */
+  h2 {
+    font-size: 22px;
+  }
+  p.lead {
+    font-size: 15px;
+  }
+
+  .cta-row {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cta-row .btn {
+    width: 100%;
+  }
+
+  /* SERVICES GRID → 1 COLUMN */
+  .services {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* SERVICE CARDS */
+  .service {
+    padding: 16px;
+  }
+
+  /* FOOTER STACKS */
+  footer {
+    flex-direction: column;
+    text-align: left;
+    gap: 18px;
+  }
+}
+
+/* Extra small phones (iPhone SE size) */
+@media (max-width: 460px) {
+  header .brand img {
+    width: 46px;
+    height: 46px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+}
+/* Pop-in animation */
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.btn-pop {
+  animation: popIn 0.6s ease-out forwards;
+
+}
+/* Hover pop animation */
+.btn:hover {
+  transform: scale(1.08);
+  transition: transform 0.2s ease;
+}
+.btn {
+  transition: transform 0.2s ease;
+}
+.btn:hover {
+  animation: hoverPop 0.3s ease-out;
+}
+
+@keyframes hoverPop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.12); }
+  100% { transform: scale(1.05); }
+}
+
+.social-icons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+}
+/* Nav underline fade + slide animation */
+nav a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  opacity: 0;
+  transform-origin: left;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+  opacity: 1;
+}
+/* Fade-in animation for marketing text */
+.fade-text {
+  opacity: 0;
+  animation: fadeIn 1.4s ease-out forwards;
+  animation-delay: 0.3s;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
+  margin-top: 16px;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.post-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.image-viewer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.image-viewer img {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* ---------- Post Grid & Boxes (FIXED) ---------- */
+
+.post-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.post-box {
+  background: var(--card);
+  border-radius: 12px;
+  width: 100%;
+  aspect-ratio: 1 / 1;   /* ⭐ Makes perfect square */
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;       /* Keeps edges clean */
+  border: 1px dashed rgba(255,255,255,0.15);
+}
+
+/* Image inside the square */
+.post-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* ⭐ Makes the image fill square properly */
+  border-radius: 12px;
+}
+
+/* Mobile: stack them vertically */
+@media (max-width: 768px) {
+  .post-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 768px) {
+
+  /* Center the entire button section */
+  .cta-row {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 14px; /* better spacing */
+    margin-top: 18px;
+  }
+
+  /* Perfect button width on mobile */
+  .cta-row .btn {
+    width: 90%;      /* centered, looks cleaner */
+    max-width: 350px; /* prevents too wide on tablets */
+    text-align: center;
+  }
+}
+/* QR with animated glowing border */
+.qr-box img {
+  width: 190px;
+  border-radius: 14px;
+  padding: 8px;
+  background: #0f1724;
+  animation: qrGlow 2.2s ease-in-out infinite alternate;
+  box-shadow: 0 0 18px rgba(0, 255, 200, 0.25);
+}
+
+/* Neon glow animation */
+@keyframes qrGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(0,255,200,0.3), 0 0 20px rgba(0,255,200,0.15);
+    border: 2px solid rgba(0,255,200,0.5);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(0,255,200,0.6), 0 0 40px rgba(0,255,200,0.35);
+    border: 2px solid rgba(0,255,200,0.9);
+  }
+}
+
+/* FULLSCREEN QR glowing border */
+#full-qr-viewer img {
+  border-radius: 16px;
+  padding: 12px;
+  background: #0f1724;
+  animation: qrGlowFull 2.2s ease-in-out infinite alternate;
+}
+
+/* Stronger glow for fullscreen */
+@keyframes qrGlowFull {
+  0% {
+    box-shadow: 0 0 25px rgba(0,255,200,0.4), 0 0 50px rgba(0,255,200,0.2);
+    border: 3px solid rgba(0,255,200,0.5);
+  }
+  100% {
+    box-shadow: 0 0 45px rgba(0,255,200,0.8), 0 0 90px rgba(0,255,200,0.35);
+    border: 3px solid rgba(0,255,200,1);
+  }
+}
