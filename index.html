@@ -166,6 +166,18 @@ function copyEmail() {
   });
 }
 </script>
+<script>
+function openImage(src) {
+  const viewer = document.getElementById("image-viewer");
+  const fullImg = document.getElementById("full-image");
+  fullImg.src = src;
+  viewer.style.display = "flex";
+}
+
+function closeImage() {
+  document.getElementById("image-viewer").style.display = "none";
+}
+</script>
 
 </body>
 </html>
