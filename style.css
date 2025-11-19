@@ -73,6 +73,25 @@ nav a{
   padding-bottom:4px;
 }
 
+/* ---- NAV UNDERLINE (HOVER + ACTIVE) ---- */
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
+  transition: 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.active::after {
+  width: 100%;
+}
 
 nav a.cta{
   background:linear-gradient(90deg,var(--accent),var(--accent-2));
@@ -229,7 +248,26 @@ footer{
 }
 
 /* -----------------------------------------------------------
-   MOBILE RESPONSIVE FIXES
+   IMAGE VIEWER
+----------------------------------------------------------- */
+.image-viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999999;
+}
+
+.image-viewer img {
+  width: 90%;
+  max-width: 600px;
+  border-radius: 12px;
+}
+
+/* -----------------------------------------------------------
+   MOBILE RESPONSIVE
 ----------------------------------------------------------- */
 @media (max-width:768px){
 
@@ -282,72 +320,4 @@ footer{
 @media (max-width:460px){
   .brand img{width:46px;height:46px;}
   h2{font-size:20px;}
-}
-.coming-soon {
-  font-size: 18px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  padding: 12px;
-}
-.image-viewer {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.85);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999999;
-}
-
-.image-viewer img {
-  width: 90%;
-  max-width: 600px;
-  border-radius: 12px;
-}
-nav a {
-  position: relative;
-}
-
-/* Hover underline animation */
-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--accent);
-  transition: 0.3s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* ACTIVE PAGE — underline always visible */
-nav a.active::after {
-  width: 100%;
-}
-nav a {
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0%;
-  height: 2px;
-  background: var(--accent);
-  transition: 0.3s ease;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-nav a.active::after {
-  width: 100%;
 }
