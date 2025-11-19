@@ -27,6 +27,19 @@ body{
   padding:28px;
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-text h1,
+.brand-text p {
+  margin: 0; 
+  padding: 0;
+  line-height: 1.1;
+}
+
 /* -----------------------------------------------------------
    HEADER
 ----------------------------------------------------------- */
